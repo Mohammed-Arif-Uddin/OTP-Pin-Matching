@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Pin Matcher</title>
+</head>
+
+<body>
+    <section class="body-part">
+        <div class="first-part">
+            <input id="input" inputmode type="text">
+            <br>
+            <button button-text id="btn" class="generate-btn">Generate Button</button>
+        </div>
+        <div class="second-part">
+            <div class="input-term">
+                <input input-mode class="form-control" type="text">
+            </div>
+            <div class="btn">
+                <button class="btn-class" data-number>9</button>
+                <button class="btn-class" data-number>8</button>
+                <button class="btn-class" data-number>7</button>
+                <button class="btn-class" data-number>6</button>
+                <button class="btn-class" data-number>5</button>
+                <button class="btn-class" data-number>4</button>
+                <button class="btn-class" data-number>3</button>
+                <button class="btn-class" data-number>2</button>
+                <button class="btn-class" data-number>1</button>
+                <button class="btn-class" data-Back>B</button>
+                <button class="btn-class" data-number>0</button>
+                <button class="btn-class" data-clear>C</button>
+            </div>
+            <div><button submit-btn class="submit-btn">Submit Button</button></div>
+        </div>
+        <div>
+            <h1 showing-part>You are right</h1>
+            <h1 closing-part>X Your Pin is Wrong!</h1>
+        </div>
+    </section>
+    <script>
+        class Calculator {
+            constructor(Input, FirstInput, ClosingPart, ShowingPart) {
+                this.Input = Input
+                this.FirstInput = FirstInput
+                this.ClosingPart = ClosingPart
+                this.ShowingPart = ShowingPart
+                this.clear()
+                this.newClear()
+            }
+            clear() {
+                this.CurrentOperand = ''
+            }
+            newClear() {
+                this.newOperand = Math.random() * 10000
+                this.pin = (this.newOperand + '').split('.')[0]
+                if (this.pin.length == 4) {
+                    this.pin = this.pin
+                } else {
+                    return newClear()
+                }
+            }
+            appendNumber(number) {
+                this.CurrentOperand = this.CurrentOperand.toString() + number.toString()
+            }
+            UpdateHistory() {
+                this.Input.value = this.CurrentOperand
+            }
+            PinHistory() {
+                this.FirstInput.value = this.pin
+            }
+            equal() {
+                if (this.Input.value == this.FirstInput.value) {
+                    this.ShowingPart.style.display = 'block'
+                } else {
+                    this.ClosingPart.style.display = 'block'
+                }
+            }
+        }
+
+
+        const DataNumber = document.querySelectorAll('[data-number]')
+        const Input = document.querySelector('[input-mode]')
+        const DataClear = document.querySelector('[data-clear]')
+        const ButtonText = document.querySelector('[button-text]')
+        const FirstInput = document.querySelector('[inputmode]')
+        const SubmitBtn = document.querySelector('[submit-btn]')
+        const ClosingPart = document.querySelector('[closing-part]')
+        const ShowingPart = document.querySelector('[showing-part]')
+
+        const calculator = new Calculator(Input, FirstInput, ClosingPart, ShowingPart)
+
+        DataNumber.forEach(button => {
+            button.addEventListener('click', () => {
+                calculator.appendNumber(button.innerText)
+                calculator.UpdateHistory()
+            })
+        })
+        DataClear.addEventListener('click', () => {
+            calculator.clear()
+            calculator.UpdateHistory()
+        })
+        ButtonText.addEventListener('click', () => {
+            calculator.newClear()
+            calculator.PinHistory()
+        })
+
+        SubmitBtn.addEventListener('click', () => {
+            calculator.equal()
+        })
+    </script>
+</body>
+
+</html>

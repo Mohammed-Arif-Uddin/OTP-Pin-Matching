@@ -1,0 +1,99 @@
+body {
+    background: linear-gradient(to right, rgb(131, 225, 241), rgb(124, 252, 124));
+}
+
+.btn {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(4, 80px);
+    padding: 5px;
+}
+
+.btn-class {
+    background-color: hotpink;
+}
+
+.btn-class:hover {
+    background-color: lawngreen;
+    font-size: 30px;
+}
+
+.input-term {
+    position: relative;
+    left: 40px;
+    size: 150px;
+}
+
+#input {
+    position: relative;
+    top: 15px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    border-collapse: collapse;
+    left: 30px;
+    font-size: 20px;
+}
+
+#btn {
+    position: relative;
+    top: 200px;
+    background-color: chartreuse;
+    height: 50px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    left: 130px;
+}
+
+.body-part {
+    margin-left: 100px;
+    margin-bottom: 150px;
+}
+
+.submit-btn {
+    margin-left: 150px;
+    padding-top: 10px;
+    background-color: darkorange;
+}
+
+.first-part {
+    position: relative;
+    top: 240px;
+    width: 400px;
+    border-style: hidden;
+    height: 370px;
+    padding: 10px;
+    background-color: blanchedalmond;
+    margin-left: 50px;
+}
+
+h1 {
+    position: relative;
+    margin-left: 300px;
+    display: none;
+    font-size: 100px;
+}
+
+.second-part {
+    position: relative;
+    bottom: 150px;
+    width: 400px;
+    border-style: hidden;
+    margin-left: 700px;
+    background-color: blanchedalmond;
+    padding: 10px;
+    max-height: 500px;
+}
+
+.form-control {
+    width: 320px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: red;
+}
+
+.half-part {
+    margin-left: 50px;
+    margin-top: 500px;
+}
